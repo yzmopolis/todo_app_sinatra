@@ -38,3 +38,12 @@ post '/done' do
   value = item.done ? 'done' : 'not done'
   { :id => params[:id], :status => value }.to_json
 end
+
+get '/delete/:id' do
+  @item = Item.first(:id => params[:id])
+  erb :delete
+end
+
+post '/delete/:id' do
+  "Delete"
+end
