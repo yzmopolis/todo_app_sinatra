@@ -13,3 +13,9 @@ class Item
 end
 
 DataMapper.finalize.auto_upgrade!
+
+get '/' do
+  @items = Item.all(:order => :created.desc)
+  redirect '/new' if @items.empty?
+  erb :index
+end
