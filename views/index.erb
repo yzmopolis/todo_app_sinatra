@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8' />
+  <title>ruby todo app</title>
+  <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
+</head>
+<body class='container'>
+  <h1><%= @title %></h1>
+    <ul id="todo-list">
+      <% @items.each do |item| %>
+        <li id="<%= item[:id] %>">
+        <span class="item">
+        <%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %>
+        </span>
+          <span class="pull-right">
+          <a href="#" class="btn done"><%= item[:done] ? "Not done" : "Done"%></a>
+          <a href="/delete/<%= item[:id] %>" class="btn btn-danger">Delete</a>
+          </span>
+        </li>
+      <% end %>
+    </ul>
+  <a href="/new" class="btn btn-primary">Add new</a>
+</body>
+</html>
