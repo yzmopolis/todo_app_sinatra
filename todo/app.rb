@@ -29,3 +29,12 @@ post '/new' do
   Item.create(:content => params[:content], :created => Time.now)
   redirect '/'
 end
+
+post '/done' do
+  item = Item.first(:id => params[:id])
+  item.done = !item.done
+  item.save
+  content_type 'application/json'
+  value = item.done ? 'done' : 'not done'
+  { :id => params[:id], :status => value }.to_json
+end
