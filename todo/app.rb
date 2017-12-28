@@ -16,7 +16,7 @@ DataMapper.finalize.auto_upgrade!
 get '/' do
   @items = Item.all(:order => :created.desc)
   @title = "Should I stay or should I go?"
-  # redirect '/new' if @items.empty?
+  # redirect '/new' if @items.empty? OR NOT
   erb :index
 end
 
