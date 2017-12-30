@@ -4,7 +4,7 @@
       <span class="item"><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %>
         <span>
         <a href="#" class="btn done"><%= item[:done] ? "Not done" : "Done"%></a>
-        <a href="/delete/<%= item[:id] %>" class="btn btn-danger removeItem" name="OK">Delete</a>
+        <a href="/delete/<%= item[:id] %>" class="btn btn-danger removeItem">Delete</a>
         </span>
       </span>
     </li>
