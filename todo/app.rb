@@ -39,11 +39,6 @@ post '/done' do
   { :id => params[:id], :status => value }.to_json
 end
 
-# delete '/:id' do
-#   @items.delete(params[:id])
-#   redirect '/'
-# end
-
 get '/delete/:id/?' do
   @item = Item.first(:id => params[:id])
 end
@@ -52,9 +47,9 @@ post '/delete/:id/?' do
   if params.value?('OK')
     item = Item.first(:id => params[:id])
     item.destroy
-    puts "bitch please"
+    # czemu mi nie robi refresha? :(
+    redirect '/'
   else
-    puts "dupa"
+    puts "not works"
   end
-  redirect '/'
 end
