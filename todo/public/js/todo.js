@@ -22,4 +22,12 @@ $(document).ready(function() {
         });
         evnt.preventDefault();
     });
+
+
+    $(".removeItem").click(function (event) {
+        if(confirm('Are you sure you want to delete this?')) {
+         console.log("I m sure")
+        }
+
+    })
 });

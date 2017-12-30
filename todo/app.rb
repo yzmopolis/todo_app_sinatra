@@ -41,9 +41,10 @@ end
 
 get '/delete/:id' do
   @item = Item.first(:id => params[:id])
-  erb :delete
 end
 
 post '/delete/:id' do
-  "Delete"
+  item = Item.first(:id => params[:id])
+  item.destroy
+  redirect '/'
 end
