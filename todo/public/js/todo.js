@@ -24,10 +24,18 @@ $(document).ready(function() {
     });
 
 
-    $(".removeItem").click(function (event) {
-        if(confirm('Are you sure you want to delete this?')) {
-         console.log("I m sure")
-        }
+    $(".removeItem").click(function (evnt) {
+        evnt.preventDefault();
 
+        if(confirm('Are you sure you want to delete this?')) {
+         var item_id = $(this).parents('li').attr('id');
+         console.log("I m sure");
+         console.log(item_id);
+         $.ajax({
+             type: "POST",
+             url: "/delete/"+item_id+"",
+             data: {id: item_id, my_param: "OK"},
+         })
+        }
     })
 });
