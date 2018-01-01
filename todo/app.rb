@@ -47,9 +47,21 @@ post '/delete/:id/?' do
   if params.value?('OK')
     item = Item.first(:id => params[:id])
     item.destroy
-    # czemu mi nie robi refresha? :(
     redirect '/'
   else
-    puts "not works"
+    puts "params value"
   end
+end
+
+get '/edit/:id/?' do
+  @item = Item.first(:id => params[:id])
+  erb :edit
+end
+
+
+post '/edit/:id/?' do
+  @item = Item.first(:id => params[:id])
+  @item.content = params[:content]
+  @item.save
+  redirect '/'
 end
