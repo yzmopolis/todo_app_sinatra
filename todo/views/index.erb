@@ -3,6 +3,7 @@
     <li id="<%= item[:id] %>">
       <span class="item"><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %>
         <span>
+          <a href="/edit/<%= item[:id] %>" class="btn editBtn">Edit</a>
         <a href="#" class="btn done"><%= item[:done] ? "Not done" : "Done"%></a>
         <a href="/delete/<%= item[:id] %>" class="btn btn-danger removeItem">Delete</a>
         </span>
