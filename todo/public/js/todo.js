@@ -1,7 +1,7 @@
 $(document).ready(function() {
     console.log("ika");
     $(".done").click(function(evnt) {
-        console.log("Done");
+        console.log("done button");
         var item_id = $(this).parents('li').attr('id');
         console.log(item_id);
         $.ajax({
@@ -24,8 +24,8 @@ $(document).ready(function() {
     });
 
 
-    $(".removeItem").click(function (evnt) {
-        evnt.preventDefault();
+    $(".removeItem").click(function (event) {
+        event.preventDefault();
 
         if(confirm('Are you sure you want to delete this?')) {
          var item_id = $(this).parents('li').attr('id');
@@ -34,7 +34,7 @@ $(document).ready(function() {
          $.ajax({
              type: "POST",
              url: "/delete/"+item_id+"",
-             data: {id: item_id, my_param: "OK"},
+             data: {id: item_id},
          })
         }
     })
