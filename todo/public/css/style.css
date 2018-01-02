@@ -1,0 +1,12 @@
+html, body {
+    background: #F0F2F4;
+}
+
+ul {
+    list-style-type: none !important;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
