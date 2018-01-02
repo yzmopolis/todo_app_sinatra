@@ -1,7 +1,5 @@
 $(document).ready(function() {
-    console.log("ika");
     $(".done").click(function(evnt) {
-        console.log("done button");
         var item_id = $(this).parents('li').attr('id');
         console.log(item_id);
         $.ajax({
@@ -29,8 +27,6 @@ $(document).ready(function() {
 
         if(confirm('Are you sure you want to delete this?')) {
          var item_id = $(this).parents('li').attr('id');
-         console.log("I m sure");
-         console.log(item_id);
          $.ajax({
              type: "POST",
              url: "/delete/"+item_id+"",
