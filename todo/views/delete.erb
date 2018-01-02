@@ -1,0 +1,5 @@
+<blockquote><p><%= @item.content %></p></blockquote>
+<form action="/delete/<%= @item.id %>" method="POST">
+  <button type="submit" class="button is-light is-medium" name="YES">YES</button>
+  <button type="submit" class="button is-light is-medium" name="cancel">NO</button>
+</form>
