@@ -40,16 +40,19 @@ post '/done' do
 end
 
 get '/delete/:id/?' do
+  @title = "Are you sure you want to delete this?"
   @item = Item.first(:id => params[:id])
+  erb :delete
 end
 
 post '/delete/:id/?' do
-  if params.value?('OK')
+  if params.has_key?("YES")
     item = Item.first(:id => params[:id])
     item.destroy
     redirect '/'
   else
-    puts "params value"
+    puts "if not works"
+    redirect '/'
   end
 end
 
