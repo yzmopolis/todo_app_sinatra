@@ -54,14 +54,20 @@ post '/delete/:id/?' do
 end
 
 get '/edit/:id/?' do
+  @title = "Why are you keeping this curiosity door locked?"
   @item = Item.first(:id => params[:id])
   erb :edit
 end
-
 
 post '/edit/:id/?' do
   @item = Item.first(:id => params[:id])
   @item.content = params[:content]
   @item.save
   redirect '/'
+end
+
+not_found do
+  status 404
+  @title = "Lost in the upside down. Error #404."
+  erb :not_found
 end
