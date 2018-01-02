@@ -1,14 +1,33 @@
-<ul id="todo-list">
-  <% @items.each do |item| %>
-    <li id="<%= item[:id] %>">
-      <span class="item"><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %>
-        <span>
-          <a href="/edit/<%= item[:id] %>" class="btn editBtn">Edit</a>
-        <a href="#" class="btn done"><%= item[:done] ? "Not done" : "Done"%></a>
-        <a href="/delete/<%= item[:id] %>" class="btn btn-danger removeItem">Delete</a>
-        </span>
-      </span>
-    </li>
-  <% end %>
-</ul>
-<a href="/new" class="btn btn-primary">Add new</a>
+<div class="columns">
+  <div class="column is-12">
+    <div class="card-table">
+      <div class="content">
+        <ul id="todo-list">
+        <table class="table">
+          <div class="card events-card">
+            <header class="card-header">
+              <p class="card-header-title">Stranger things to do</p>
+            </header>
+          </div>
+
+              <% @items.each do |item| %>
+              <tr>
+                <td>
+                  <li id="<%= item[:id] %>"><span class="item"><%= item[:done] ? "<del>#{item[:content]}</del>" : item[:content] %></span>
+                  <span>
+                  <a href="#" class="button is-light is-small done"><%= item[:done] ? "Not done" : "Done"%></a>
+                  <a href="/edit/<%= item[:id] %>" class="button is-light is-small editBtn"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                  <a href="/delete/<%= item[:id] %>" class="delete is-medium removeItem"></a>
+                  </span></li></td>
+              </tr>
+              <% end %>
+
+        </table>
+        </ul>
+        <div class="buttons has-addons is-centered">
+          <span class="button is-light is-medium"><a href="/new" style="text-decoration:none;">Add new thing</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
