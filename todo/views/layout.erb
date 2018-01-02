@@ -6,14 +6,41 @@
   <title>Todo App</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.1/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
 <section class="section">
   <div class="container">
-  <h1 class="title"><%= @title %></h1>
-    <%= yield %>
+    <div class="tile is-ancestor">
+      <div class="tile is-vertical is-10">
+        <div class="tile">
+          <div class="tile is-parent is-vertical">
+            <article class="tile is-child notification is-primary">
+              <h1 class="title"><%= @title %></h1>
+            </article>
+            <article class="tile is-child notification is-info">
+              <%= yield %>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="tile">
+        <div class="tile is-vertical is-10">
+      <div class="content has-text-centered">
+        <article class="tile is-child notification is-link">
+        <p class="subtitle is-5">I'm stealthy, like a ninja.</p>
+        </article>
+      </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </section>
+
   <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
   <script src="/js/todo.js"></script>
 </body>
