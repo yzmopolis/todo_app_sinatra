@@ -21,17 +21,4 @@ $(document).ready(function() {
         evnt.preventDefault();
     });
 
-
-    $(".removeItem").click(function (event) {
-        event.preventDefault();
-
-        if(confirm('Are you sure you want to delete this?')) {
-         var item_id = $(this).parents('li').attr('id');
-         $.ajax({
-             type: "POST",
-             url: "/delete/"+item_id+"",
-             data: {id: item_id},
-         })
-        }
-    })
 });
