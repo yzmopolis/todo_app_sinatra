@@ -51,7 +51,6 @@ post '/delete/:id/?' do
     item.destroy
     redirect '/'
   else
-    puts "if not works"
     redirect '/'
   end
 end
